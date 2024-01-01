@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>BMI Calculator</title>
-</head>
-<body>
-    <h1>BMI Calculator</h1>
-    <form method="post">
-        <label for="weight">Enter your weight (in kg):</label>
-        <input type="text" id="weight" name="weight" required><br><br>
+    <div class="video-container">
+        <video autoplay muted loop id="video-background">
+          <source src="../static/video.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+    </div>
+    <div class="centered-div">
+        <title>BMI Calculator</title>
+        <link href="../static/styles.css" rel="stylesheet">
+        <h1>BMI Calculator</h1>
+        <form method="post">
+            <label for="weight">Enter your weight (in kg):</label>
+            <input type="text" id="weight" name="weight" required><br><br>
+            
+            <label for="height">Enter your height (in cm):</label>
+            <input type="text" id="height" name="height" required><br><br>
+            
+            <input id = "submit-button" type="submit" value="Calculate BMI">
+        </form>
         
-        <label for="height">Enter your height (in cm):</label>
-        <input type="text" id="height" name="height" required><br><br>
-        
-        <input type="submit" value="Calculate BMI">
-    </form>
-    
-    {% if bmi %}
-    <h2>Your BMI is: {{ bmi }}</h2>
-    <h2>Your weight category is: {{ category }}</h2>
-    {% endif %}
-</body>
+        {% if bmi %}
+        <h2>Your BMI is: {{ bmi }}</h2>
+        <h2>Your weight category is: {{ category }}</h2>
+        {% endif %}
+    </div>
 </html>
+
