@@ -29,6 +29,7 @@ def index():
         category = get_weight_category(bmi)
 
     return render_template('index.html', bmi=bmi, category=category)
+#
 
 if __name__ == '__main__':
     app.run()
