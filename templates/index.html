@@ -1,29 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <div class="video-container">
-        <video autoplay muted loop id="video-background">
-          <source src="../static/video.mp4" type="video/mp4">
-          Your browser does not support HTML5 video.
-        </video>
-    </div>
-    <div class="centered-div">
-        <title>BMI Calculator</title>
-        <link href="../static/styles.css" rel="stylesheet">
-        <h1>BMI Calculator</h1>
-        <form method="post">
-            <label for="weight">Enter your weight (in kg):</label>
-            <input type="text" id="weight" name="weight" required><br><br>
-            
-            <label for="height">Enter your height (in cm):</label>
-            <input type="text" id="height" name="height" required><br><br>
-            
-            <input id = "submit-button" type="submit" value="Calculate BMI">
-        </form>
-        
-        {% if bmi %}
-        <h2>Your BMI is: {{ bmi }}</h2>
-        <h2>Your weight category is: {{ category }}</h2>
-        {% endif %}
-    </div>
-</html>
+<div class="video-container">
+    <video autoplay muted loop id="video-background">
+        <source src="../static/video.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+</div>
+<div class="centered-div">
+    <title>BMI Calculator</title>
+    <link href="../static/styles.css" rel="stylesheet">
+    <h1>BMI Calculator</h1>
+    <form method="post">
+        <label for="weight">Enter your weight (in kg):</label>
+        <input type="text" id="weight" name="weight" required><br><br>
 
+        <label for="height">Enter your height (in cm):</label>
+        <input type="text" id="height" name="height" required><br><br>
+
+        <input id="submit-button" type="submit" value="Calculate BMI">
+    </form>
+
+    {% if bmi %}
+    <h2>Your BMI is: {{ bmi }}</h2>
+    <h2>Your weight category is: {{ category }}</h2>
+    <a href="/weight_categories">Find out more about weight categories!</a> <!-- Add a link to view the result -->
+    {% endif %}
+    {% if category %}
+
+    <h3>Here's some feedback:</h3>
+
+    {% if category == "Underweight" %}
+
+    <p>Your health journey matters! Consider consulting a nutritionist or dietitian to explore healthy ways to gain
+        weight.
+        Incorporating nutrient-dense foods and a balanced meal plan tailored to your needs could be a great start.
+        Remember, gradual changes can lead to lasting improvements in your well-being</p>
+
+    {% endif %}
+
+    {% if category == "Normal weight" %}
+
+    <p>Keep up the fantastic work maintaining a healthy weight! Balanced nutrition and regular exercise are key.
+        Remember to listen to your body's signals and prioritize self-care. Your commitment to overall wellness is
+        inspiring!</p>
+
+    {% endif %}
+
+    {% if category == "Overweight" %}
+
+    <p>Taking steps toward a healthier lifestyle is incredible! Consider small, sustainable changes like portion
+        control, adding more veggies to meals, and finding enjoyable physical activities.
+        You're already on the path to a healthier you—keep going, one step at a time! </p>
+
+    {% endif %}
+
+    {% if category == "Obese" %}
+
+    <p>Your dedication to improving your health is admirable! Seeking support from healthcare professionals, such as a
+        nutritionist or doctor, can offer guidance tailored to your needs. Small, gradual changes in diet and physical
+        activity can make a significant difference.
+        Remember, every positive choice brings you closer to a healthier, happier you. You've got this!</p>
+
+    {% endif %}
+
+    {% endif %}
+</div>
+
+
+</html>

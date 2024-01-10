@@ -29,7 +29,11 @@ def index():
         category = get_weight_category(bmi)
 
     return render_template('index.html', bmi=bmi, category=category)
-#
+
+@app.route('/weight_categories')
+def result():
+    # You can include any necessary data processing or logic here
+    return render_template('weight_categories.html')
 
 if __name__ == '__main__':
     app.run()
